@@ -11,8 +11,8 @@
     </header>
   </body>
   <main>
-    <h2>Nova Montadora</h2>
-    <form action="{% url 'montadora_save' %}" method="post">
+    <h2>Editar Montadora</h2>
+    <form action="{% url 'montadora_edit' %}" method="post">
       {% csrf_token %}
       <input
         type="text"
@@ -31,6 +31,12 @@
         name="foundation_year"
         placeholder="Ano da Montadora"
         value="{{montadora.foundation_year}}"
+      />
+      <!--Todo: como passar o id sem ser assim?-->
+      <input 
+        type="hidden"
+        name="id"
+        value="{{montadora.id}}"
       />
       <input type="submit" value="Salvar" />
     </form>

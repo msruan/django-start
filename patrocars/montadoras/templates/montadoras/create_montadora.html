@@ -11,8 +11,8 @@
     </header>
   </body>
   <main>
-    <h2>Atualizar Montadora</h2>
-    <form action="{% url 'montadora_update' %}" method="post">
+    <h2>Criar Montadora</h2>
+    <form action="{% url 'montadora_save' %}" method="post">
       {% csrf_token %}
       <input type="text" name="name" placeholder="Nome da Montadora.." />
       <input type="text" name="country" placeholder="Pais..." />
