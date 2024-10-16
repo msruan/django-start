@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adicionar montadora</title>
+  </head>
+  <body>
+    <header>
+      <h1>Adicionar montadora</h1>
+    </header>
+  </body>
+  <main>
+    <h2>Nova Montadora</h2>
+    <form action="{% url 'montadora_save' %}" method="post">
+      <input type="text" name="name" placeholder="Nome da Montadora.." />
+      <input type="text" name="country" placeholder="Pais..." />
+      <input
+        type="text"
+        name="foundation_year"
+        placeholder="Ano da Montadora"
+      />
+      <input type="submit" value="Salvar Montadora" />
+    </form>
+  </main>
+</html>
