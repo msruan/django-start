@@ -9,8 +9,18 @@ class MontadoraView:
 
     def create(req):
         return render(req,'montadoras_form.html');
+    
+    # def update(req):
+    #     return render(req,'montadoras_update_form.html');
+    
+    # def put(req: HttpRequest):
+    #     form = MontadoraForm(req.POST)
+    #     if form.is_valid():
+    #         new_montadora =  Montadora(name=form.cleaned_data['name'],country=form.cleaned_data['country'] , foundation_year=form.cleaned_data['foundation_year'])    
+    #         new_montadora.save();
+    #     return render(req,'montadoras_form.html');
 
-    def save(req: HttpRequest):
+    def post(req: HttpRequest):
         form = MontadoraForm(req.POST)
         if form.is_valid():
             new_montadora =  Montadora(name=form.cleaned_data['name'],country=form.cleaned_data['country'] , foundation_year=form.cleaned_data['foundation_year'])    
