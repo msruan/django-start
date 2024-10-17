@@ -5,14 +5,17 @@
 {% block title_page %} Lista de Montadoras {% endblock %}
 
 {% block content %}
-{% if montadoras %}
+{% if object_list %}
 <ul>
-  {% for montadora in montadoras %}
-  <li>{{ montadora.name }} - {{ montadora.country}} | <a href="/montadoras/editar/{{montadora.id}}">Editar</a></li>
+  {% for montadora in object_list %}
+  <li>{{ montadora.name }} - {{ montadora.country}} | <a class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" href="/montadoras/editar/{{montadora.id}}">Editar</a> | <form class="inline" action="{% url 'montadora_delete' montadora.id %}"" method="post">{% csrf_token %}
+    <input class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type="submit" value="Deletar">
+  </form></li>
   {% endfor %}
 </ul>
 {% else %}
 <div>Sem montadoras no momento...</div>
 {% endif %}
-<a href="/montadoras/criar"> Adicionar montadora </a>
+<a class="text-blue-600 hover:underline" href="/montadoras/criar"> Adicionar montadora </a>
+
 {% endblock %}

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
     {% block extra_css %} {% endblock %}
     <title>{% block title %} PatroCars {% endblock %}</title>
   </head>
-  <body>
+  <body class="min-h-screen flex flex-col justify-between">
     <header>
-      <h1>PatroCars 2000</h1>
+      <h1 class="text-red-500 text-4xl font-bold">PatroCars 2000</h1>
     </header>
 
     <main>
