@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="h-full flex justify-center items-center">
-  <form class="block flex flex-col gap-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" action="{% url 'montadora_save' %}" method="post">
+  <form class="block flex flex-col gap-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" action="{% url 'montadora_put' object.id %}" method="post">
     {% csrf_token %}
     <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Atualizar montadora</h5>
     {{ form.as_p }}

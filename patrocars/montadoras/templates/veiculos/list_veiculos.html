@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Veículos {% endblock %}
+
+{% block title_page %} Lista de Veículos {% endblock %}
+
+{% block content %}
+{% if object_list %}
+<ul>
+  {% for veiculo in object_list %}
+  <li>{{ veiculo.cor }} | <a class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" href="/veiculos/editar/{{veiculo.id}}">Editar</a> | <form class="inline" action="{% url 'veiculo_delete' veiculo.id %}"" method="post">{% csrf_token %}
+    <input class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type="submit" value="Deletar">
+  </form></li>
+  {% endfor %}
+</ul>
+{% else %}
+<div>Sem veículos no momento...</div>
+{% endif %}
+<a class="text-blue-600 hover:underline" href="/veiculos/criar"> Adicionar veículo </a>
+
+{% endblock %}

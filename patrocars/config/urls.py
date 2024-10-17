@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.http import HttpResponse, HttpRequest
+from .views import index
 
 def hello_world(request: HttpRequest):
     return HttpResponse('Hello World!');
@@ -24,5 +25,6 @@ def hello_world(request: HttpRequest):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/',hello_world),
-    path('montadoras/',include('montadoras.urls'))
+    path('',index),
+    path('',include('montadoras.urls')),
 ]

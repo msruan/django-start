@@ -9,15 +9,45 @@ class Montadora(models.Model):
   country = models.CharField(max_length=100)
   foundation_year = models.IntegerField()
 
-   # Metadados
   class Meta:
         ordering = ['name','foundation_year']
-  # Métodos
   def __str__(self):
-  # """ String para representar o objeto MyModelName (no site Admin)."""
     return self.name
 
+class ModeloVeiculo(models.Model):
+  id = models.AutoField(primary_key=True)
+  name = models.CharField(max_length=200)
+  montadora_id = models.ForeignKey(Montadora,on_delete=models.CASCADE)
+  valor_referencia = models.IntegerField()
+  motorizacao = models.IntegerField()
+  turbo = models.BooleanField()
+  automatico = models.BooleanField()
+  def __str__(self):
+    return self.name
+
+class Veiculo(models.Model):
+  id = models.AutoField(primary_key=True)
+  modelo_id = models.ForeignKey(ModeloVeiculo,on_delete=models.CASCADE)
+  cor = models.CharField(max_length=150)
+  ano_fabricacao = models.IntegerField()
+  ano_modelo = models.IntegerField()
+  valor = models.IntegerField()
+  placa = models.CharField(max_length=20)
+  vendido = models.BooleanField()
+  def __str__(self):
+    return self.cor
 class MontadoraForm(ModelForm):
     class Meta:
         model = Montadora
         fields = ["name", "country", "foundation_year"]
+class ModeloVeiculoForm(ModelForm):
+    class Meta:
+        model = ModeloVeiculo
+        fields = ["name", "montadora_id", "valor_referencia","motorizacao","turbo","automatico"]
+
+class VeiculoForm(ModelForm):
+   class Meta:
+        model = Veiculo
+        fields = ["modelo_id", "cor", "ano_fabricacao","ano_modelo", "valor", "placa","vendido"]
+
+  
