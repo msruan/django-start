@@ -1,0 +1,82 @@
+/* Cursor padrão */
+body {
+    cursor: url('cursors/Normal-Emoji.cur'), auto; 
+}
+
+/* Cursor de ponteiro (pointer) */
+.pointer {
+    cursor: url('cursors/Link-Emoji.cur'), pointer;
+}
+
+/* Cursor de texto (text) */
+.text {
+    cursor: url('cursors/Text-Emoji.cur'), text;
+}
+
+/* Cursor ocupado (busy) */
+.busy {
+    cursor: url('cursors/Busy-emoji.cur'), wait;
+}
+
+/* Cursor de ajuda (help) */
+.help {
+    cursor: url('cursors/Help-Emoji.cur'), help;
+}
+
+/* Cursor de movimentação (move) */
+.move {
+    cursor: url('cursors/Move-emoji.cur'), move;
+}
+
+/* Cursor alternativo */
+.alternate {
+    cursor: url('cursors/Alternate-Emoji.cur'), auto;
+}
+
+/* Cursor de escrita (handwriting) */
+.handwriting {
+    cursor: url('cursors/HandWriting-Emoji.cur'), text;
+}
+
+/* Cursor de precisão */
+.precision {
+    cursor: url('cursors/Precision-Emoji.cur'), crosshair;
+}
+
+/* Cursor indisponível */
+.unavailable {
+    cursor: url('cursors/Unavailable-Emoji.cur'), not-allowed;
+}
+
+/* Cursors diagonais */
+.diagonal1 {
+    cursor: url('cursors/Diagonal1-Emoji.cur'), auto;
+}
+
+.diagonal2 {
+    cursor: url('cursors/Diagonal2-Emoji.cur'), auto;
+}
+
+/* Cursors verticais e horizontais */
+.vertical {
+    cursor: url('cursors/Vertical-Emoji.cur'), auto;
+}
+
+.horizontal {
+    cursor: url('cursors/Horizontal-Emoji.cur'), auto;
+}
+
+/* Cursor de localização */
+.location {
+    cursor: url('cursors/Location-Emoji.cur'), pointer;
+}
+
+/* Cursor de trabalho em segundo plano */
+.working-bg {
+    cursor: url('cursors/WorkingInBg-Emoji.cur'), auto;
+}
+
+/* Cursor de pessoa */
+.person {
+    cursor: url('cursors/Person-Emoji.cur'), auto;
+}

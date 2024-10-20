@@ -6,6 +6,7 @@ from django.forms import ModelForm
 class Montadora(models.Model):
   id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=200)
+  avatar_url = models.CharField(max_length=200)
   country = models.CharField(max_length=100)
   foundation_year = models.IntegerField()
 
@@ -36,10 +37,12 @@ class Veiculo(models.Model):
   vendido = models.BooleanField()
   def __str__(self):
     return self.cor
+  
 class MontadoraForm(ModelForm):
     class Meta:
         model = Montadora
-        fields = ["name", "country", "foundation_year"]
+        fields = ["name", "country", "foundation_year","avatar_url"]
+
 class ModeloVeiculoForm(ModelForm):
     class Meta:
         model = ModeloVeiculo
@@ -49,5 +52,3 @@ class VeiculoForm(ModelForm):
    class Meta:
         model = Veiculo
         fields = ["modelo_id", "cor", "ano_fabricacao","ano_modelo", "valor", "placa","vendido"]
-
-  

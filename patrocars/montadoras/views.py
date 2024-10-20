@@ -11,6 +11,34 @@ from django.views.generic import (
 
 class MontadoraView:
 
+    def create(req: HttpRequest):
+        if req.method == "POST":
+            form = MontadoraForm(req.POST)
+            #  if request.method == 'POST':
+            if form.is_valid():
+                new_montadora =  Montadora(name=form.cleaned_data['name'],country=form.cleaned_data['country'] , foundation_year=form.cleaned_data['foundation_year'],avatar_url=form.cleaned_data['avatar_url'])    
+                new_montadora.save()
+                return HttpResponseRedirect("/montadoras")
+            else:
+                # Aqui você pode imprimir os erros
+                print(form.errors)  # Para depuração no console
+                return render(req, 'montadoras/create_montadora.html', {'form': form})  # Retornar o formulário com erros
+        else: 
+            return render(req,'montadoras/create_montadora.html')
+
+    def put(req: HttpRequest, pk: int):
+        if req.method == "POST":
+            form = MontadoraForm(req.POST)
+            if form.is_valid():
+                montadora = get_object_or_404(Montadora,id=pk)
+                montadora.name = form.cleaned_data['name']
+                montadora.country = form.cleaned_data['country']
+                montadora.foundation_year = form.cleaned_data['foundation_year']
+                montadora.save()
+            return HttpResponseRedirect("/montadoras")
+        else: 
+            return render(req,'montadoras/update_montadora.html')
+
     class ListAll(ListView):
         model = Montadora
         template_name = "montadoras/list_montadoras.html"
