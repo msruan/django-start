@@ -4,18 +4,16 @@
 
 {% block content %}
 
-
-
-<div class="h-full flex justify-center items-center">
+<div class="h-full flex flex-col justify-center items-center">
+    <h5 class="mb-2 text-4xl text-center font-bold tracking-tight text-gray-900 ">Cadastrar montadora</h5>
 
   <form class="block flex flex-col gap-4 w-96 p-6 bg-blue-300 border border-white border-2 rounded-lg  shadow dark:border-white border-dashed" action="{% url 'montadora_create' %}" method="post">
     {% csrf_token %}
-    <h5 class="mb-2 text-3xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Nova montadora</h5>
     <!-- {{ form.as_p }} -->
-    <input class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg text-xs focus:ring-blue-500 focus:border-blue-500" type="text" name="name" placeholder="Nome..."></input>
-    <input class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg text-xs focus:ring-blue-500 focus:border-blue-500" type="text" name="country" placeholder="País"></input>
-    <input class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500" type="number" name="foundation_year" placeholder="Ano de fundação"></input>
-    <input class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500" type="text" name="avatar_url" placeholder="HREF para a logo"></input>
+    <input class="block text w-full p-2 text-gray-900 border border-gray-300 rounded-lg text-xs focus:ring-blue-500 focus:border-blue-500" type="text" name="name" placeholder="Nome..."></input>
+    <input class="block text w-full p-2 text-gray-900 border border-gray-300 rounded-lg text-xs focus:ring-blue-500 focus:border-blue-500" type="text" name="country" placeholder="País"></input>
+    <input class="block text w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500" type="number" name="foundation_year" placeholder="Ano de fundação"></input>
+    <input class="block text w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500" type="text" name="avatar_url" placeholder="HREF para a logo"></input>
    <!-- class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" -->
     
     <!-- <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" name="name" placeholder="Nome da Montadora.." />

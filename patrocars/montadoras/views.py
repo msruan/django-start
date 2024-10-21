@@ -41,7 +41,7 @@ class MontadoraView:
 
     class ListAll(ListView):
         model = Montadora
-        template_name = "montadoras/list_montadoras.html"
+        template_name = "index.html"
 
     class Create(CreateView):
         model = Montadora

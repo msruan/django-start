@@ -2,7 +2,7 @@ from django.urls import path
 from .views import MontadoraView, ModeloVeiculoView, VeiculoView
 
 urlpatterns = [
-    path('montadoras/',MontadoraView.ListAll.as_view(),name='montadoras_list'),
+    path('',MontadoraView.ListAll.as_view(),name='montadoras_list'),
     path('montadoras/criar/',MontadoraView.create,name='montadora_create'),
     path('montadoras/editar/<int:pk>/',MontadoraView.put,name='montadora_put'),
     path('montadoras/deletar/<int:pk>/',MontadoraView.Delete.as_view(),name='montadora_delete'),
