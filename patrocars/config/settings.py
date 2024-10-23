@@ -29,9 +29,9 @@ env.read_env(str(BASE_DIR / ".env"))
 SECRET_KEY = 'django-insecure-liavz6dqyt5*462z&_4!ppa1vdd)omwq4!@u31u(r=efa+064t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['thepatrocars.onrender.com']
 
 
 # Application definition
