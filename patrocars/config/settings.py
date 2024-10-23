@@ -59,6 +59,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://thepatrocars.onrender.com']
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
