@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-liavz6dqyt5*462z&_4!ppa1vdd)omwq4!@u31u(r=efa+064t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(env("DEBUG"))
 
-ALLOWED_HOSTS = ['thepatrocars.onrender.com']
+ALLOWED_HOSTS = ['thepatrocars.onrender.com','localhost']
 
 
 # Application definition
