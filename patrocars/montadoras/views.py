@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.csrf import requires_csrf_token
 from django.http import HttpRequest, HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.views.decorators.csrf import csrf_protect
+from django.utils.decorators import method_decorator
 from .models import Montadora, MontadoraForm, ModeloVeiculo, ModeloVeiculoForm, Veiculo, VeiculoForm
 from django.views.generic import (
     CreateView,
@@ -11,6 +14,8 @@ from django.views.generic import (
 
 class MontadoraView:
 
+
+    @method_decorator(csrf_protect, name='dispatch')
     def create(req: HttpRequest):
         if req.method == "POST":
             form = MontadoraForm(req.POST)
@@ -26,6 +31,7 @@ class MontadoraView:
         else: 
             return render(req,'montadoras/create_montadora.html')
 
+    @method_decorator(csrf_protect, name='dispatch')
     def put(req: HttpRequest, pk: int):
         if req.method == "POST":
             form = MontadoraForm(req.POST)
@@ -49,6 +55,7 @@ class MontadoraView:
         template_name = "montadoras/create_montadora.html"
         success_url = reverse_lazy("montadoras_list")
 
+   
     class Update(UpdateView):
         model = Montadora
         form_class = MontadoraForm
