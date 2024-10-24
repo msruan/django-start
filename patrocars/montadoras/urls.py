@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import MontadoraView, ModeloVeiculoView, VeiculoView
+from .views import MontadoraView, ModeloVeiculoView, VeiculoView, admin
 
 urlpatterns = [
     path('',MontadoraView.ListAll.as_view(),name='montadoras_list'),
-    path('montadoras/criar/',MontadoraView.create,name='montadora_create'),
-    path('montadoras/editar/<int:pk>/',MontadoraView.put,name='montadora_put'),
+    path('admin/',admin,name='admin_page'),
+    path('montadoras/criar/',MontadoraView.Create.as_view(),name='montadora_create'),
+    path('montadoras/editar/<int:pk>/',MontadoraView.Update.as_view(),name='montadora_put'),
     path('montadoras/deletar/<int:pk>/',MontadoraView.Delete.as_view(),name='montadora_delete'),
 
     path('modelos/',ModeloVeiculoView.ListAll.as_view(),name='modelos_list'),

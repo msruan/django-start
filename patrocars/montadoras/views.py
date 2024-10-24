@@ -12,56 +12,29 @@ from django.views.generic import (
     UpdateView,
 )
 
+def admin(req):
+    return render(req, "admin.html");
+
 class MontadoraView:
 
+    class Create(CreateView):
+        model = Montadora
+        form_class = MontadoraForm
+        template_name = "montadoras/montadora_form.html"
+        success_url = reverse_lazy("montadoras_list")
+        context_object_name = 'montadora'
 
-    @method_decorator(csrf_protect, name='dispatch')
-    def create(req: HttpRequest):
-        if req.method == "POST":
-            form = MontadoraForm(req.POST)
-            #  if request.method == 'POST':
-            if form.is_valid():
-                new_montadora =  Montadora(name=form.cleaned_data['name'],country=form.cleaned_data['country'] , foundation_year=form.cleaned_data['foundation_year'],avatar_url=form.cleaned_data['avatar_url'])    
-                new_montadora.save()
-                return HttpResponseRedirect("/montadoras")
-            else:
-                # Aqui você pode imprimir os erros
-                print(form.errors)  # Para depuração no console
-                return render(req, 'montadoras/create_montadora.html', {'form': form})  # Retornar o formulário com erros
-        else: 
-            return render(req,'montadoras/create_montadora.html')
-
-    @method_decorator(csrf_protect, name='dispatch')
-    def put(req: HttpRequest, pk: int):
-        if req.method == "POST":
-            form = MontadoraForm(req.POST)
-            if form.is_valid():
-                montadora = get_object_or_404(Montadora,id=pk)
-                montadora.name = form.cleaned_data['name']
-                montadora.country = form.cleaned_data['country']
-                montadora.foundation_year = form.cleaned_data['foundation_year']
-                montadora.save()
-            return HttpResponseRedirect("/montadoras")
-        else: 
-            return render(req,'montadoras/update_montadora.html')
+    class Update(UpdateView):
+        model = Montadora
+        form_class = MontadoraForm
+        template_name = "montadoras/montadora_form.html"
+        success_url = reverse_lazy("montadoras_list")
+        context_object_name = 'montadora'
 
     class ListAll(ListView):
         model = Montadora
         template_name = "index.html"
 
-    class Create(CreateView):
-        model = Montadora
-        form_class = MontadoraForm
-        template_name = "montadoras/create_montadora.html"
-        success_url = reverse_lazy("montadoras_list")
-
-   
-    class Update(UpdateView):
-        model = Montadora
-        form_class = MontadoraForm
-        template_name = "montadoras/update_montadora.html"
-        success_url = reverse_lazy("montadoras_list")
-    
     class Delete(DeleteView):
         model = Montadora
         success_url = reverse_lazy('montadoras_list')  # Redirecionar após a exclusão
@@ -80,12 +53,24 @@ class ModeloVeiculoView:
         form_class = ModeloVeiculoForm
         template_name = "modelos/create_modelo.html"
         success_url = reverse_lazy("modelos_list")
+        context_object_name = 'modelo'
+
+        def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context['montadoras'] = Montadora.objects.all()  # Passa o queryset para o template
+            return context
 
     class Update(UpdateView):
         model = ModeloVeiculo
         form_class = ModeloVeiculoForm
-        template_name = "modelos/update_modelo.html"
+        template_name = "modelos/create_modelo.html"
         success_url = reverse_lazy("modelos_list")
+        context_object_name = 'modelo'
+
+        def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context['montadoras'] = Montadora.objects.all()  # Passa o queryset para o template
+            return context
     
     class Delete(DeleteView):
         model = ModeloVeiculo

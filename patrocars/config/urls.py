@@ -22,7 +22,7 @@ def hello_world(request: HttpRequest):
     return HttpResponse('Hello World!');
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('django-admin/', admin.site.urls),
     path('hello/',hello_world),
     path('',include('montadoras.urls')),
 ]
