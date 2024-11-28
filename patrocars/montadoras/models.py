@@ -19,8 +19,8 @@ class ModeloVeiculo(models.Model):
   id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=200)
   montadora_id = models.ForeignKey(Montadora,on_delete=models.CASCADE)
-  valor_referencia = models.IntegerField()
-  motorizacao = models.IntegerField()
+  valor_referencia = models.FloatField()
+  motorizacao = models.FloatField()
   turbo = models.BooleanField()
   automatico = models.BooleanField()
   def __str__(self):

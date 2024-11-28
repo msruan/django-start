@@ -44,9 +44,10 @@ class MontadoraView:
         
 class ModeloVeiculoView:
 
-    class ListAll(ListView):
-        model = ModeloVeiculo
+    def ListAll(req: HttpRequest):
+        object_list = ModeloVeiculo.objects.all().order_by("-id")
         template_name = "modelos/list_modelos.html"
+        return render(req,template_name,context={"object_list":object_list})
 
     class Create(CreateView):
         model = ModeloVeiculo

@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-liavz6dqyt5*462z&_4!ppa1vdd)omwq4!@u31u(r=efa+064t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(env("DEBUG"))
 
-ALLOWED_HOSTS = ['thepatrocars.onrender.com','localhost']
+ALLOWED_HOSTS = ['thepatrocars.onrender.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -86,18 +86,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": env("POSTGRES_DATABASE"),
-        "USER": env("POSTGRES_USER"),
-        "PASSWORD": env("POSTGRES_PASSWORD"),
-        "HOST": env("POSTGRES_HOST"),
-        "PORT": env("POSTGRES_PORT"),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": env("POSTGRES_DATABASE"),
+    #     "USER": env("POSTGRES_USER"),
+    #     "PASSWORD": env("POSTGRES_PASSWORD"),
+    #     "HOST": env("POSTGRES_HOST"),
+    #     "PORT": env("POSTGRES_PORT"),
+    # }
 }
 
 
@@ -123,9 +123,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = 'America/Fortaleza'
 
 USE_I18N = True
 

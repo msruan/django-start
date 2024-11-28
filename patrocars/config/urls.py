@@ -18,11 +18,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.http import HttpResponse, HttpRequest
 
-def hello_world(request: HttpRequest):
-    return HttpResponse('Hello World!');
-
 urlpatterns = [
     path('django-admin/', admin.site.urls),
-    path('hello/',hello_world),
     path('',include('montadoras.urls')),
 ]
